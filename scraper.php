@@ -5,7 +5,7 @@
 	echo $html;
 	foreach($html->find(".employee_list thead tbody tr") as $element)		
 	{
-			echo $name = $element->find("//*[@id='employee_list']/tbody[1]/tr/td[1]")->plaintext;
+			echo $name = $element->find("//*[@id='employee_list']/tbody[1]/tr/td[1]");
 			'<br/>';
 	}	
 ?>
