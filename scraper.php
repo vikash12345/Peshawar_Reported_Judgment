@@ -52,11 +52,13 @@
    $desdate = $element->find("td", 4)->plaintext;
    $scstatus = $element->find("td", 5)->plaintext;
    $cat = $element->find("td", 6)->plaintext;
-   $judgment = $element->find("td", 7)->src;
+   $pdflink = $element->find(".//td/a", 0)->href;
+  
+   echo  $number . ' -->' . $case . ' -->' . $remark . ' -->' . $citation . ' -->' . $desdate . ' -->' . $scstatus.  '-->'. $cat .'-->'.$pdflink;	
+
  } 
  
  
- echo  $number . ' -->' . $case . ' -->' . $remark . ' -->' . $citation . ' -->' . $desdate . ' -->' . $scstatus. '-->'. $cat .'-->'.$judgment;
  
  
  ?>
