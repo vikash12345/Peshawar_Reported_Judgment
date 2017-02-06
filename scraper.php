@@ -43,9 +43,20 @@
  
  
 
- foreach($maincode->find("//*[@id='employee_list']/tbody[1]/tr") as $element) {
-  echo $name = $element->find("td", 0)->plaintext;
-  echo '<br/>';
+ foreach($maincode->find("//*[@id='employee_list']/tbody[1]/tr") as $element) 
+ {
+   $number = $element->find("td", 0)->plaintext;
+   $case = $element->find("td", 1)->plaintext;
+   $remark = $element->find("td", 2)->plaintext;
+   $citation = $element->find("td", 3)->plaintext;
+   $desdate = $element->find("td", 4)->plaintext;
+   $scstatus = $element->find("td", 5)->plaintext;
+   $cat = $element->find("td", 6)->plaintext;
+   $judgment = $element->find("td", 7)->src;
  } 
+ 
+ 
+ echo  $number . ' -->' . $case . ' -->' . $remark . ' -->' . $citation . ' -->' . $desdate . ' -->' . $scstatus. '-->'. $cat .'-->'.$judgment;
+ 
  
  ?>
