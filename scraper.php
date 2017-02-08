@@ -78,7 +78,7 @@ try {
     PRIMARY KEY (case))');
 } catch (Exception $e) {
 }
-$articles = array(array('case' => "$case", 'number' => '$number', 'remark' => '$remark', 'citation' => '$citation' , 'desdate' =>'$desdate','scstatus' => '$scstatus', 'cat' => '$cat', 'pdflink' => '$pdflink'));
+$articles = array(array('case' => '$case', 'number' => '$number', 'remark' => '$remark', 'citation' => '$citation' , 'desdate' =>'$desdate','scstatus' => '$scstatus', 'cat' => '$cat', 'pdflink' => '$pdflink'));
 foreach ($articles as $article) {
   $exists = $db->query("SELECT * FROM data Where case = $case");
   if (!$exists) {
