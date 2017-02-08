@@ -80,8 +80,8 @@ try {
 }
 $articles = array(array('case' => '$case', 'number' => '$number', 'remark' => '$remark', 'citation' => '$citation' , 'desdate' =>'$desdate','scstatus' => '$scstatus', 'cat' => '$cat', 'pdflink' => '$pdflink'));
 foreach ($articles as $article) {
-  $exists = $db->query("SELECT * FROM data Where case = $case");
-  if (!$exists) {
+$exists = $db->query("SELECT * FROM data WHERE case =" .$db->quote($article->case))->fetchObject();
+	if (!$exists) {
     $sql = "INSERT INTO data(case,number,remark,citation,desdate,scstatus,cat,pdflink) VALUES($case,$number,$remark,$citation,$desdate,$scstatus,$cat,$pdflink)";
   } 
     $statement = $db->prepare($sql);
