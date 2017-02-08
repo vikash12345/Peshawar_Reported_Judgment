@@ -89,11 +89,11 @@ foreach ($articles as $article) {
     ':$case' => $article['case'], 
     ':$number' => $article['number'],
     ':$remark' => $article['remark'],
-    ':$citation' => $article['citation']
-    ':$desdate' => $article['desdate']
-    ':$scstatus' => $article['scstatus']
-    ':$cat' => $article['cat']
-    ':$pdflink' => $article['pdflink']
+    ':$citation' => $article['citation'],
+    ':$desdate' => $article['desdate'],
+    ':$scstatus' => $article['scstatus'],
+    ':$cat' => $article['cat'],
+    ':$pdflink' => $article['pdflink'],
     
   ));
 }
