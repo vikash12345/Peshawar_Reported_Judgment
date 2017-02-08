@@ -67,14 +67,14 @@ $db = new PDO('sqlite:data.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
   $db->query('CREATE TABLE data(
-    case TEXT,
+    case VARCHAR(200),
     number VARCHAR(100),
     remark VARCHAR(200),
     citation VARCHAR(200),
-    $desdate VARCHAR(200),
-    $scstatus VARCHAR(200),
-    $cat VARCHAR(200),
-    $pdflink VARCHAR(200),
+    desdate VARCHAR(200),
+    scstatus VARCHAR(200),
+    cat VARCHAR(200),
+    pdflink VARCHAR(200),
     PRIMARY KEY (case))');
 } catch (Exception $e) {
 }
