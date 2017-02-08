@@ -60,5 +60,44 @@
  
  
  
+
+
+
+$db = new PDO('sqlite:data.sqlite');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+  $db->query('CREATE TABLE data(
+    case TEXT,
+    number VARCHAR(100),
+    remark VARCHAR(200),
+    citation VARCHAR(200),
+    $desdate VARCHAR(200),
+    $scstatus VARCHAR(200),
+    $cat VARCHAR(200),
+    $pdflink VARCHAR(200),
+    PRIMARY KEY (case))');
+} catch (Exception $e) {
+}
+$articles = array(array('case' => "$case", 'number' => '$number', 'remark' => '$remark', 'citation' => '$citation' , 'desdate' =>'$desdate','scstatus' => '$scstatus', 'cat' => '$cat', 'pdflink' => '$pdflink'));
+foreach ($articles as $article) {
+  $exists = $db->query("SELECT * FROM data WHERE case = " . $db->quote($article->$case))->fetchObject();
+  if (!$exists) {
+    $sql = "INSERT INTO data(case,number,remark,citation,desdate,scstatus,cat,pdflink) VALUES(:$case,:$number,:$remark,:$citation,:$desdate,:$scstatus,:$cat,:$pdflink)";
+  } 
+    $statement = $db->prepare($sql);
+    $statement->execute(array(
+    ':$case' => $article['case'], 
+    ':$number' => $article['number'],
+    ':$remark' => $article['remark'],
+    ':$citation' => $article['citation']
+    ':$desdate' => $article['desdate']
+    ':$scstatus' => $article['scstatus']
+    ':$cat' => $article['cat']
+    ':$pdflink' => $article['pdflink']
+    
+  ));
+}
+
+
  
  ?>
