@@ -54,8 +54,8 @@
    $cat = $element->find("td", 6)->plaintext;
    $pdflink = $element->find(".//td/a", 0)->href;
   
-   echo  $number . ' -->' . $case . ' -->' . $remark . ' -->' . $citation . ' -->' . $desdate . ' -->' . $scstatus.  '-->'. $cat .'-->'.$pdflink;	
-   echo '<br\>';
+  // echo  $number . ' -->' . $case . ' -->' . $remark . ' -->' . $citation . ' -->' . $desdate . ' -->' . $scstatus.  '-->'. $cat .'-->'.$pdflink;	
+  // echo '<br\>';
  } 
  
  
@@ -82,7 +82,7 @@ $articles = array(array('case' => "$case", 'number' => '$number', 'remark' => '$
 foreach ($articles as $article) {
   $exists = $db->query("SELECT * FROM data);
   if (!$exists) {
-    $sql = "INSERT INTO data(case,number,remark,citation,desdate,scstatus,cat,pdflink) VALUES(:$case,:$number,:$remark,:$citation,:$desdate,:$scstatus,:$cat,:$pdflink)";
+    $sql = "INSERT INTO data(case,number,remark,citation,desdate,scstatus,cat,pdflink) VALUES($case,$number,$remark,$citation,$desdate,$scstatus,$cat,$pdflink)";
   } 
     $statement = $db->prepare($sql);
     $statement->execute(array(
