@@ -55,7 +55,7 @@
    $pdflink = $element->find(".//td/a", 0)->href;
   
    echo  $number . ' -->' . $case . ' -->' . $remark . ' -->' . $citation . ' -->' . $desdate . ' -->' . $scstatus.  '-->'. $cat .'-->'.$pdflink;	
-
+   echo '<br\>';
  } 
  
  
